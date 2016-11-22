@@ -14,14 +14,12 @@
 		the specific language governing permissions and limitations under the License. -->
 
 	<modelVersion>4.0.0</modelVersion>
-
-
 	<groupId>com.ruwanka</groupId>
 	<artifactId>camel.exaples.springdsl</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>bundle</packaging>
-	<name>Apache ServiceMix :: Examples :: Camel OSGi :: Spring DSL</name>
-	<description>Camel example uses camel-spring and OSGi bundle plugin to package</description>
+	<name>Camel OSGi :: Spring DSL :: Sample</name>
+	<description>Camel example uses camel-spring and OSGi bundle plugin to package and camel plugin to run</description>
 
 	<properties>
 		<camel.version>2.16.3</camel.version>
@@ -32,6 +30,7 @@
 	</properties>
 
 	<dependencies>
+	
 	<!-- logging -->
 	    <dependency>
 	      <groupId>org.apache.logging.log4j</groupId>
@@ -39,27 +38,34 @@
 	      <version>${log4j.version}</version>
 	      <scope>runtime</scope>
 	    </dependency>
+	    
 	    <dependency>
 	      <groupId>org.apache.logging.log4j</groupId>
 	      <artifactId>log4j-core</artifactId>
 	      <version>${log4j.version}</version>
 	      <scope>runtime</scope>
 	    </dependency>
+	    
 	    <dependency>
 	      <groupId>org.apache.logging.log4j</groupId>
 	      <artifactId>log4j-slf4j-impl</artifactId>
 	      <version>${log4j.version}</version>
 	      <scope>runtime</scope>
 	    </dependency>
+	    
+	<!-- camel dependencies -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring</artifactId>
 			<version>${camel.version}</version>
 		</dependency>
+		
 	</dependencies>
 
 	<build>
 		<plugins>
+		
+			<!-- allows the route to be ran via 'mvn camel:run' -->
 			<plugin>
 				<groupId>org.apache.camel</groupId>
 				<artifactId>camel-maven-plugin</artifactId>
@@ -85,10 +91,13 @@
 					<instructions>
 						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 						<Bundle-Description>${project.description}</Bundle-Description>
+						 <!-- instruction tells the plugin which of the available packages to copy into the bundle and export -->
 						<Export-Package>com.ruwanka*</Export-Package>
+						<!-- instruction is a list of packages that are required by the bundle's contained packages. The default for this header is "*" -->
 						<Import-Package>
 							*
 						</Import-Package>
+						<!-- instruction indicates which of the available packages to copy into the bundle but not export -->
 						<!-- <Private-Package></Private-Package> -->
 					</instructions>
 				</configuration>

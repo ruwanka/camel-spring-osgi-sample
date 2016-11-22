@@ -6,6 +6,11 @@ import java.util.Date;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 
+/**
+ * Simple processor class that alters the file name
+ * @author Ruwanka
+ *
+ */
 public class FileProcessor implements Processor {
 
     public void process(Exchange exchange) throws Exception {
