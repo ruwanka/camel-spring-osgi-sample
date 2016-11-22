@@ -1,13 +1,9 @@
-##CAMEL SPRING DSL OSGI EXAMPLE
-#=============================
+##CAMEL SPRING DSL OSGi EXAMPLE
 
 ##Purpose
 -------
 This is a sample to kickoff Camel OSGi bundle with spring dsl. It based on [servicemix example of camel-osgi](https://github.com/apache/servicemix/tree/master/examples/camel/camel-osgi).
-This deploys a Camel EIP route as an OSGi bundle. Configuration makes use
-of the OSGi Configuration Admin service and Spring property placeholders,
-and the example demonstrates how to deploy the properties file from the
-ServiceMix console.
+This deploys a Camel EIP route as an OSGi bundle.
 
 ##Explanation
 -----------
@@ -46,7 +42,8 @@ of this example.
 
 ##Independent run via maven apache-camel plugin
 
-After `mvn clean install`, `mvn camel:run` can be used to run the routes independently from the servicemix.
+After `mvn clean install`, `mvn camel:run` can be used to run the 
+routes independently from the servicemix.
 
 Below section explains how to deploy the OSGi bundle in to apache servicemix
 
@@ -69,8 +66,8 @@ properties placeholder in the beans.xml from console as follows:
 2. Copy the updated configuration file to your <servicemix_home>/etc
    directory. You can do this from the ServiceMix console by typing:
 
-     `copy $YOUR_SERVICEMIX_HOME/examples/camel/camel-osgi/org.apache.servicemix.examples.cfg`
-     `$YOUR_SERVICEMIX_HOME/etc`
+     copy $YOUR_SERVICEMIX_HOME/examples/camel/camel-osgi/org.apache.servicemix.examples.cfg
+     $YOUR_SERVICEMIX_HOME/etc
 
    On Windows you need to replace / in the path with \\.
 
@@ -83,7 +80,7 @@ properties placeholder in the beans.xml from console as follows:
        to it. To get the bundle ID, enter the following command in the
        ServiceMix console:
 
-         `bundle:list`
+         bundle:list
 
       At the end of the listing, you should see an entry similar to
       the following:
@@ -95,7 +92,7 @@ properties placeholder in the beans.xml from console as follows:
    (ii) Enter the following command in the ServiceMix console to
         restart the bundle:
     
-          `bundle:restart <bundle_id>`
+          bundle:restart <bundle_id>
   
   The prefix of the output should change, and the output on the console should
   be updated accordingly.
@@ -112,7 +109,7 @@ yourself, complete the following steps:
  examples/camel/camel-osgi (this example) and entering the following Maven 
  command:
 
-     `mvn install`
+     mvn install
    
    If all of the required OSGi bundles are available in your local Maven
    repository, the example will build very quickly. Otherwise it may
